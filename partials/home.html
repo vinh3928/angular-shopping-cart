@@ -1,0 +1,26 @@
+<table ng-filter>
+  <tr>
+    <th>Tea</th>
+    <th>Information
+    <label for="price">Sort By Price</label>
+    <select id="price">
+      <option>Something<option>
+    </select>
+    </th>
+  </tr>
+  <tr ng-repeat="tea in teaData">
+    <td><img src="{{tea.imageUrl}}" alt="image" /></td>
+    <td>
+      <h2>{{tea.name}}</h2>
+      <p>Price: {{tea.price | customCurrency | currency}}</p>
+      <p>Caffeine Scale: {{tea.caffeineScale}}</p>
+      <p>Ingredients: {{tea.ingredients}}</p>
+      <p>Ratings: {{tea.rating}}</p>
+      <p>In Stock? {{tea.inStock}}</p>
+      <p>Categories: </p>
+      <ul ng-repeat= "category in tea.categories">
+        <li>{{category}}</li>
+      </ul>
+    </td>
+  </tr>
+</table>

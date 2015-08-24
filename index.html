@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="movieApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="stylesheets/style.css" title="" type="text/css" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to MEAN Tea!</h1>
+    <nav>
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Contact</a>
+    </nav>
+    <div class="option-menu">
+      <label for="category">Search By Category</label>
+      <select id="category"> 
+        <option>something</option>
+      </select>
+      <label for="name">Search By Name</label>
+      <input type="text" name="" id="name" value="" />
+      <button type="text"><span>Checkout</span> | Bag: Empty!</button>
+      <div ng-view>
+      </div>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" charset="utf-8" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" charset="utf-8" src="bower_components/ng-table/dist/ng-table.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/controller.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascript/filter.js"></script>
+  </body>
+</html>
