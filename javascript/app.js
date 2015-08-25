@@ -5,5 +5,9 @@ app.config(function($routeProvider) {
     .when('/', {
       templateUrl: "partials/home.html",
       controller: "HomeController"
+    })
+    .when('/checkout', {
+      templateUrl: "partials/cart.html",
+      controller: "CartController"
     });
 });

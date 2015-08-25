@@ -1,0 +1,21 @@
+
+<h2>Checkout!</h2>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Sub-Total</th>
+  </tr>
+<tr ng-repeat="tea in showTea">
+  <td>
+    <h2>{{tea.name}}</h2>
+    <img ng-src="{{tea.imageUrl}}" alt="" />
+    <p>Caffeine Scale: {{tea.caffeineScale}}</p>
+    <p>Ingredients: {{tea.ingredients}}</p>
+    <p>Rating: {{tea.rating}}</p>
+  </td>
+  <td>{{tea.quantity}}</td>
+
+  
+</tr>
+</table>

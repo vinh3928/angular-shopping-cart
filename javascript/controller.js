@@ -1,7 +1,27 @@
-app.controller("HomeController", ["$scope", "$http", function($scope, $http) {
-  $http.get('data.json').then(function(data) {
-    $scope.teaData = data.data
-    console.log($scope.teaData);
+app.controller("HomeController", ["$scope", "teas", function($scope, teas) {
+  $scope.teaData = [];
+  if (teas.teaData === undefined) {
+  teas.getData().success(function(data) {
+    teas.teaData = data;
+    teas.teaData.forEach(function(item, index, array) {
+      item.quantity = 0;
+    });
+    $scope.teaData = data;
   });
+  }
+  $scope.addQuant = function (input) {
+      var quantity = this.quantity;
+    teas.teaData.forEach(function (item, index, array) {
+      if (item.name === input) {
+        item.quantity = quantity;
+      }
+    });
+  };
+
+}]);
+
+app.controller("CartController", ["$scope", "teas", function($scope, teas) {
+  console.log(teas.teaData);
+  $scope.showTea = teas.teaData;
 
 }]);
