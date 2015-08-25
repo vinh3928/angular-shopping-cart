@@ -13,7 +13,7 @@ app.controller("HomeController", ["$scope", "teas", function($scope, teas) {
       var quantity = this.quantity;
     teas.teaData.forEach(function (item, index, array) {
       if (item.name === input) {
-        item.quantity = quantity;
+        item.quantity = item.quantity + parseInt(quantity);
       }
     });
   };

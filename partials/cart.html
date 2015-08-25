@@ -1,5 +1,5 @@
 
-<h2>Checkout!</h2>
+<h2>Order total: {{prices}}</h2>
 <table>
   <tr>
     <th>Product</th>
@@ -15,7 +15,7 @@
     <p>Rating: {{tea.rating}}</p>
   </td>
   <td>{{tea.quantity}}</td>
-
-  
+  <td ng-model="prices">{{tea.quantity * tea.price | customCurrency | currency}}</td>
+  <td></td>
 </tr>
 </table>
