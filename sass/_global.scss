@@ -3,3 +3,27 @@
   box-sizing: border-box;
 
 }
+
+th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 20px;
+
+}
+
+td {
+  border: 1px solid black;
+  padding: 0 20px;
+}
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+tr {
+  margin: 0;
+  padding: 0;
+
+}

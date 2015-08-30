@@ -2,5 +2,34 @@
 img {
   width: 300px;
   height: 200px;
+}
 
+.quantity {
+  float: right;
+}
+
+.sort-price {
+  float: right;
+
+}
+
+.option-menu {
+  padding: 20px;
+  a {
+    float: right;
+
+  }
+}
+
+.order-total {
+  float: right;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.shopping {
+  width: 100%;
 }

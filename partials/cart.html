@@ -1,21 +1,31 @@
 
-<h2>Order total: {{prices}}</h2>
-<table>
-  <tr>
-    <th>Product</th>
-    <th>Quantity</th>
-    <th>Sub-Total</th>
+<div class="container">
+  <h2 class="order-total">Order total: {{showTea | totalPrice | customCurrency | currency}}</h2>
+  <h2>My Shopping Bag</h2>
+  <table class="shopping">
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Sub-Total</th>
+    </tr>
+    <tr ng-repeat="tea in showTea" ng-show="tea.quantity > 0">
+    <td>
+      <h2>{{tea.name}}</h2>
+      <img ng-src="{{tea.imageUrl}}" alt="" />
+      <p>Caffeine Scale: {{tea.caffeineScale}}</p>
+      <p>Ingredients: {{tea.ingredients}}</p>
+      <p>Rating: {{tea.rating}}</p>
+    </td>
+    <td>
+      <span ng-hide="showing">{{tea.quantity}}</span>
+      <input ng-show="showing" type="number" name="quantity" id="" value="{{tea.quantity}}" ng-model="teaQuant" />
+    </td>
+    <td>{{tea.quantity * tea.price | customCurrency | currency}}</td>
+    <td>
+      <button type="text" ng-hide="showing" ng-click="showing = !showing">Edit</button>
+      <button type="text" ng-show="showing" ng-click="showing = !showing; saveTea(teaQuant, tea._id)">Save</button>
+      <button type="text" ng-click="removeTea(tea._id)">Remove</button>
+    </td>
   </tr>
-<tr ng-repeat="tea in showTea">
-  <td>
-    <h2>{{tea.name}}</h2>
-    <img ng-src="{{tea.imageUrl}}" alt="" />
-    <p>Caffeine Scale: {{tea.caffeineScale}}</p>
-    <p>Ingredients: {{tea.ingredients}}</p>
-    <p>Rating: {{tea.rating}}</p>
-  </td>
-  <td>{{tea.quantity}}</td>
-  <td ng-model="prices">{{tea.quantity * tea.price | customCurrency | currency}}</td>
-  <td></td>
-</tr>
-</table>
+  </table>
+</div>

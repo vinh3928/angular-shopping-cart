@@ -15,50 +15,51 @@
   </select>
   <label for="name">Search By Name</label>
   <input type="text" name="" id="name" value="" ng-model="searchText"/>
-  <a href="/#/checkout"><button type="text"><span>Checkout</span> | Bag: Empty!</button></a>
-  <table>
-    <tr>
-      <th>Tea</th>
-      <th>Information
-      <label for="price">Sort By Price</label>
-      <select id="price" ng-model="sortPrice" ng-int"sortPrice = ''">
-        <option value="-price">highest</option>
-        <option value="price">lowest</option>
-      </select>
-      </th>
-    </tr>
-    <tr ng-repeat="tea in teaData | orderBy: sortPrice| filter: searchText | filter: categoryText">
-      <td><img ng-src="{{tea.imageUrl}}" alt="image" /></td>
-      <td>
-        <div>
-          <form ng-submit="addQuant(tea.name)">
-          <label for="quantity">Quantity</label>
-          <select ng-model="quantity" id="quantity" name="quantity">
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
-          <input type="submit" name="" id="" value="Add To Bag" />
-          </form>
-
-        </div>
-        <h2>{{tea.name}}</h2>
-        <p>Price: {{tea.price | customCurrency | currency}}</p>
-        <p>Caffeine Scale: {{tea.caffeineScale}}</p>
-        <p>Ingredients: {{tea.ingredients}}</p>
-        <p>Ratings: {{tea.rating}}</p>
-        <p>In Stock? {{tea.inStock}}</p>
-        <p>Categories: </p>
-        <ul ng-repeat= "category in tea.categories">
-          <li>{{category}}</li>
-        </ul>
-      </td>
-    </tr>
-  </table>
+  <a href="/#/checkout"><button type="text"><span>Checkout</span> | Bag: {{checkout}}</button></a>
 </div>
+<table>
+  <tr>
+    <th>Tea</th>
+    <th>Information
+      <div class="sort-price">
+        <label for="price">Sort By Price</label>
+        <select id="price" ng-model="sortPrice" ng-int"sortPrice = ''">
+          <option value="-price">highest</option>
+          <option value="price">lowest</option>
+        </select>
+      </div>
+    </th>
+  </tr>
+  <tr ng-repeat="tea in teaData | orderBy: sortPrice| filter: searchText | filter: categoryText">
+    <td><img ng-src="{{tea.imageUrl}}" alt="image" /></td>
+    <td>
+      <div class="quantity">
+        <form ng-submit="addQuant(tea.name); checkoutTea(tea.name)">
+        <label for="quantity">Quantity</label>
+        <select ng-model="quantity" id="quantity" name="quantity">
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+        <input type="submit" name="" id="" value="Add To Bag" />
+        </form>
+      </div>
+      <h2>{{tea.name}}</h2>
+      <p>Price: {{tea.price | customCurrency | currency}}</p>
+      <p>Caffeine Scale: {{tea.caffeineScale}}</p>
+      <p>Ingredients: {{tea.ingredients}}</p>
+      <p>Ratings: {{tea.rating}}</p>
+      <p>In Stock? {{tea.inStock}}</p>
+      <p>Categories: </p>
+      <ul ng-repeat= "category in tea.categories">
+        <li>{{category}}</li>
+      </ul>
+    </td>
+  </tr>
+</table>
